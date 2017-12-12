@@ -1,6 +1,6 @@
-# Episode XY
+# Episode 76
 
-Watch the [screencast]()
+Watch the [firestore data table screencast]()
 
 ## Usage
 

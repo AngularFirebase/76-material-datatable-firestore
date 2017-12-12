@@ -1,0 +1,45 @@
+<button mat-raised-button color="accent" (click)="addOne()">Add Hacker to Firestore</button>
+
+<div class="example-container mat-elevation-z8">
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="dataSource" matSort class="animate">
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let hacker"> {{ hacker.name }} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="age">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> age </mat-header-cell>
+      <mat-cell *matCellDef="let hacker"> {{ hacker.age }} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+      <mat-cell *matCellDef="let hacker"> {{ hacker.email }} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="phrase">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Phrase </mat-header-cell>
+      <mat-cell *matCellDef="let hacker"> {{ hacker.phrase }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Edit </mat-header-cell>
+        <mat-cell *matCellDef="let hacker"> 
+          <button mat-raised-button  color="primary" (click)="openDialog(hacker)">Edit</button> 
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" class="animate"></mat-row>
+  </mat-table>
+</div>
