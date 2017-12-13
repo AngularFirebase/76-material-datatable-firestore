@@ -7,7 +7,7 @@
     </mat-form-field>
   </div>
 
-  <mat-table #table [dataSource]="dataSource" matSort class="animate">
+  <mat-table #table [dataSource]="dataSource" matSort [trackBy]="trackByUid" class="animate">
 
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>

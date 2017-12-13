@@ -24,7 +24,7 @@ export class DataTableComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.afs.collection<any>('hackers').valueChanges().subscribe(data => {
-      this.dataSource = new MatTableDataSource(data);
+      this.dataSource = new MatTableDataSource(data); 
       this.dataSource.sort = this.sort;
     })
   }
@@ -54,6 +54,11 @@ export class DataTableComponent implements AfterViewInit {
     }
     this.afs.collection('hackers').doc(hacker.uid).set(hacker)
   }
+
+  trackByUid(index, item) {
+    return item.uid;
+  }
+
 
 
 }
